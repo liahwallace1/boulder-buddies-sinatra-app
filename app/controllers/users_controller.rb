@@ -6,7 +6,7 @@ class UsersController < ApplicationController
       flash[:message] = "You are already logged in. To sign up a new user, log out first."
       redirect to "/users/#{@user.slug}"
     else
-      erb :'/users/create_user'
+      erb :'/users/signup'
     end
   end
 
@@ -50,6 +50,11 @@ class UsersController < ApplicationController
   get '/users/:slug' do
       @user = User.find_by_slug(params[:slug])
       erb :'/users/show'
+  end
+
+  get '/logout' do
+    session.clear
+    redirect to '/login'
   end
 
 end

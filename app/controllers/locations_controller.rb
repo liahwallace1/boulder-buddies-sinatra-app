@@ -1,12 +1,16 @@
 class LocationsController < ApplicationController
 
   get '/locations' do
-    @location = Location.all
+    @locations = Location.all
     erb :'/locations/locations'
   end
 
   get '/locations/new' do
-    erb :'locations/new'
+    if session[:user_id]
+      erb :'locations/new'
+    else
+      flash[:message] = "You have to be logged in to add a location"
+      redirect to '/login'
   end
 
   post '/locations' do

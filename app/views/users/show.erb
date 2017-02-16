@@ -4,8 +4,12 @@
 <form method="get" action="/climbs/new">
   <input type="submit" value="Add a New Climb">
 </form>
+<br><br>
+<form method="get" action="/logout">
+  <input type="submit" value="Log Out">
+</form>
 <%end%>
-
+<br><br>
 <h2>Climbs Added</h2>
 <ul>
   <%@user.climbs.reverse.each do |climb|%>
@@ -15,5 +19,3 @@
 </ul>
 <br><br>
 <a href="/locations">Back to Locations</a>
-
-<%end%>
