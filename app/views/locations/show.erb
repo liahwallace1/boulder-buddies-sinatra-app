@@ -1,0 +1,14 @@
+<h2><%=@location.name%></h2>
+<h3><%=@location.city%>, <%=@location.state%></h3>
+
+<h2>Climbs Added</h2>
+<ul>
+  <%@location.climbs.reverse.each do |climb|%>
+    <li><h4><a href="/climbs/<%=climb.slug%>"><%=climb.name%> - <%=climb.grade%></a><br>
+      Added by: <a href="/locations/<%=climb.user.slug%>"><%=climb.user.username%></a></h4></li>
+  <%end%>
+</ul>
+<br><br>
+<a href="/locations">Back to Locations</a>
+
+<%end%>

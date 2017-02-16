@@ -1,0 +1,19 @@
+<h2>User: <%=@user.username%></h2>
+
+<%if @user == Helpers.current_user(session)%>
+<form method="get" action="/climbs/new">
+  <input type="submit" value="Add a New Climb">
+</form>
+<%end%>
+
+<h2>Climbs Added</h2>
+<ul>
+  <%@user.climbs.reverse.each do |climb|%>
+    <li><h4><a href="/climbs/<%=climb.slug%>"><%=climb.name%> - <%=climb.grade%></a><br>
+      <a href="/locations/<%=climb.location.slug%>"><%=climb.location.name%></a></h4></li>
+  <%end%>
+</ul>
+<br><br>
+<a href="/locations">Back to Locations</a>
+
+<%end%>

@@ -1,0 +1,17 @@
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
+
+<h2>Want to contribute to the site? Sign up for your Boulder Buddies account below:</h2>
+<form method="post" action="/signup">
+  <label>Username: </label>
+    <input id="username" type="text" name="username">
+    <br><br>
+  <label>Email: </label>
+    <input id="email" type="email" name="email">
+    <br><br>
+  <label>Password: </label>
+    <input id="password" type="password" name="password">
+    <br><br>
+  <input type="submit" value="Sign Up">
+</form>
