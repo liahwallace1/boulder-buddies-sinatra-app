@@ -7,7 +7,7 @@
 <%end%>
 
 <ul>
-  <%@locations.sort_by {|locale| locale.name}.each do |location|%>
+  <%@locations.each do |location|%>
     <li><h4><a href="/locations/<%=location.slug%>"><%=location.name%></a><br>
       <%=location.city%>, <%=location.state%></h4></li>
   <%end%>
