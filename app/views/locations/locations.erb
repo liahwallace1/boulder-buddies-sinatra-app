@@ -1,0 +1,14 @@
+<h2>List of Locations</h2>
+
+<%if Helpers.logged_in?(session)%>
+<form method="get" action="/locations/new">
+  <input type="submit" value="Add a New Location">
+</form>
+<%end%>
+
+<ul>
+  <%@locations.sort_by {|locale| locale.name}.each do |location|%>
+    <li><h4><a href="/locations/<%=location.slug%>"><%=location.name%></a><br>
+      <%=location.city%>, <%=location.state%></h4></li>
+  <%end%>
+</ul>

@@ -1,7 +1,13 @@
 <h2><%=@location.name%></h2>
 <h3><%=@location.city%>, <%=@location.state%></h3>
 
-<h2>Climbs Added</h2>
+<%if Helpers.logged_in?(session)%>
+<form method="get" action="/climbs/new">
+  <input type="submit" value="Add a New Climb">
+</form>
+<%end%>
+
+<h2>Climbs</h2>
 <ul>
   <%@location.climbs.reverse.each do |climb|%>
     <li><h4><a href="/climbs/<%=climb.slug%>"><%=climb.name%> - <%=climb.grade%></a><br>
@@ -10,5 +16,3 @@
 </ul>
 <br><br>
 <a href="/locations">Back to Locations</a>
-
-<%end%>
