@@ -1,0 +1,21 @@
+<h1>Create a New Location</h1>
+
+<h3>Heads Up! If you are trying to create a new climb too, use this link instead. Here, you can add a climb and a location at the same time. </h3>
+
+<form method="get" action="/climbs/new">
+  <input type="submit" value="Add a New Climb">
+</form>
+
+<form method="post" action="/locations">
+  <label>Name: </label><input id="location_name" type="text" name="name">
+  <br><br>
+  <label>City: </label><input id="location_city" type="text" name="city">
+  <br><br>
+  <label>State: </label><select name="state_dropdown">
+      <%Helpers.state_array.each do |state|%>
+        <option value="<%=state%>"><%=state%></option>
+        <%end%>
+      </select>
+  <br><br>
+  <input type="submit" value="Add Location">
+</form>
