@@ -7,9 +7,9 @@
 </form>
 <br><br>
 <form method="post" action="/locations">
-  <label>Name: </label><input id="location_name" type="text" name="name">
+  <label>Name: </label><input id="location_name" type="text" name="name" placeholder="Location Name">
   <br><br>
-  <label>City: </label><input id="location_city" type="text" name="city">
+  <label>City: </label><input id="location_city" type="text" name="city" placeholder="City">
   <br><br>
   <label>State: </label><select name="state">
       <%Helpers.state_array.each do |state|%>

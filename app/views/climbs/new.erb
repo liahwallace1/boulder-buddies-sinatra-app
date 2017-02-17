@@ -14,14 +14,16 @@
     <input id="climb_description" type="text" name="climb[description]" placeholder="Describe this climb!">
     <br><br>
     <label>Select a location: </label><br>
-    <%=Location.all.each.do |location|%>
-    <input id="location_name" type="radio" name="climb[location_id][]" value="<%=location.id%>"><%=location.name%></input>
+    <%Location.all.each do |location|%>
+    <input id="location_name" type="radio" name="climb[location_id]" value="<%=location.id%>"><%=location.name%></input><br>
+    <%end%>
+    <input id="location_name" type="radio" name="climb[location_id]" value="nil">Add a New Location</input>
     <br><br>OR create a new location:</label><br>
-  <label>Location Name: </label><input id="location_name" type="text" name="name">
+  <label>Location Name: </label><input id="location_name" type="text" name="location[name]">
   <br><br>
-  <label>City: </label><input id="location_city" type="text" name="city">
+  <label>City: </label><input id="location_city" type="text" name="location[city]">
   <br><br>
-  <label>State: </label><select name="state">
+  <label>State: </label><select name="location[state]">
       <%Helpers.state_array.each do |state|%>
         <option value="<%=state%>"><%=state%></option>
         <%end%>
