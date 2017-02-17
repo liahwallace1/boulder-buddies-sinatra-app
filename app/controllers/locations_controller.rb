@@ -11,6 +11,7 @@ class LocationsController < ApplicationController
     else
       flash[:message] = "You have to be logged in to add a location"
       redirect to '/login'
+    end
   end
 
   post '/locations' do

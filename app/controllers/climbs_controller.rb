@@ -11,6 +11,7 @@ class ClimbsController < ApplicationController
     else
       flash[:message] = "You have to be logged in to add a climb"
       redirect to '/login'
+    end
   end
 
   # post '/climbs' do

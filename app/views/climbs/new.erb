@@ -1,0 +1,33 @@
+<h1>Create a New Climb</h1>
+
+
+<form method="post" action="/climbs">
+  <label>Climb Name: </label><input id="location_name" type="text" name="climb[name]" placeholder="Climb Name">
+  <br><br>
+  <label>Grade: </label><select name="climb[grade]">
+    <%Helpers.grade_array.each do |grade|%>
+      <option value="<%=grade%>"><%=grade%></option>
+      <%end%>
+    </select>
+    <br><br>
+    <label> Description: </label><br>
+    <input id="climb_description" type="text" name="climb[description]" placeholder="Describe this climb!">
+    <br><br>
+    <label>Select a location: </label><br>
+    <%=Location.all.each.do |location|%>
+    <input id="location_name" type="radio" name="climb[location_id][]" value="<%=location.id%>"><%=location.name%></input>
+    <br><br>OR create a new location:</label><br>
+  <label>Location Name: </label><input id="location_name" type="text" name="name">
+  <br><br>
+  <label>City: </label><input id="location_city" type="text" name="city">
+  <br><br>
+  <label>State: </label><select name="state">
+      <%Helpers.state_array.each do |state|%>
+        <option value="<%=state%>"><%=state%></option>
+        <%end%>
+      </select>
+  <br><br>
+  <input type="submit" value="Add Location">
+</form>
+<br><br>
+<a href="/locations">Back to Locations</a>
