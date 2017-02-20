@@ -4,20 +4,26 @@
 <form method="post" action="/climbs/<%=@climb.slug%>">
   <label>Climb Name: </label><input id="location_name" type="text" name="climb[name]" value="<%=@climb.name%>">
   <br><br>
-  <label>Grade: </label><select name="climb[grade]" placeholder="<%=@climb.grade%>">
+
+  <label>Grade: </label><select name="climb[grade]" select="<%=@climb.grade%>">
     <%Helpers.grade_array.each do |grade|%>
-      <option value="<%=grade%>"><%=grade%></option>
+      <%if @climb.grade.eql? grade%>
+        <option value="<%=grade%>" selected><%=grade%></option>
+      <%else%>
+        <option value="<%=grade%>"><%=grade%></option>
       <%end%>
+    <%end%>
     </select>
     <br><br>
+
     <label> Description: </label><br>
     <input id="climb_description" type="text" name="climb[description]" value="<%=@climb.description%>">
     <br><br>
     <label>Select a location: </label><br>
     <%Location.all.each do |location|%>
-    <input id="location_name" type="radio" name="climb[location_id]" value="<%=location.id%>"<%='checked' if @climb.location.include?(location)%>><%=location.name%></input><br>
+    <input id="location_name" type="radio" name="climb[location_id]" value="<%=location.id%>"<%='checked' if @climb.location.name == location.name%>>  <%=location.name%></input><br>
     <%end%>
-    <input id="location_name" type="radio" name="climb[location_id]" value="nil">Add a New Location</input>
+    <input id="location_name" type="radio" name="climb[location_id]" value="nil">  Add a New Location</input>
     <br><br>OR create a new location:</label><br>
   <label>Location Name: </label><input id="location_name" type="text" name="location[name]">
   <br><br>
@@ -29,7 +35,7 @@
         <%end%>
       </select>
   <br><br>
-  <input type="submit" value="Add Climb">
+  <input type="submit" value="Save Changes">
 </form>
 <br><br>
 <a href="/locations">Back to Locations</a>
