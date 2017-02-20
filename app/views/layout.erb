@@ -14,6 +14,17 @@
   <link rel="stylesheet" href="/stylesheets/main.css" />
 </head>
 <body>
+  <header class="user-links">
+    <% if Helpers.logged_in?(session) %>
+      <a href="/users/<%=Helpers.current_user(session).slug%>"><button id="layout-links"><%=Helpers.current_user(session).username%> Homepage</button></a>
+      <a href="/locations"><button id="layout-links">View Locations</button></a>
+      <a href="/logout" onclick="return confirm('Are you sure you want to log out?');"><button id="layout-links"><strong>Log Out</strong></button></a>
+    <%else%>
+      <a href="/locations"><button id="layout-links">View Locations</button></a>
+      <a href="/login"><button id="layout-links">Log In</button></a>
+      <a href="/signup"><button id="layout-links">Sign Up</button></a>
+    <% end %>
+  </header>
   <div class="wrapper">
 
       <%= yield %>
