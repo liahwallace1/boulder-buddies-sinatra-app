@@ -14,7 +14,7 @@
 <ul>
   <%@user.climbs.reverse.each do |climb|%>
     <li><h4><a href="/climbs/<%=climb.slug%>"><%=climb.name%> - <%=climb.grade%></a><br>
-      <a href="/locations/<%=climb.location.slug%>"><%=climb.location.name%></a></h4></li>
+      <a href="/locations/<%=climb.location.slug%>"><%=climb.location.name%></a></h4></li><br>
   <%end%>
 </ul>
 <br><br>

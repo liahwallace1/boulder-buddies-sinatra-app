@@ -15,8 +15,13 @@ class LocationsController < ApplicationController
   end
 
   post '/locations' do
-    @location = Location.create(params)
-    redirect to '/locations'
+    if !Location.all.find {|location| location.name == params[:name]}
+      @location = Location.create(params)
+      redirect to '/locations'
+    else
+      flash[:message] = "Oops! That location already exists."
+      redirect '/locations'
+    end
   end
 
   get '/locations/:slug' do

@@ -5,10 +5,11 @@
   <input type="submit" value="Add a New Location">
 </form>
 <%end%>
-
+<br>
+<h3>Click on a location to view its climbs</h3><br>
 <ul>
   <%@locations.sort_by {|locale| locale.name}.each do |location|%>
-    <li><h4><a href="/locations/<%=location.slug%>"><%=location.name%></a><br>
-      <%=location.city%>, <%=location.state%></h4></li>
+    <li><strong><a href="/locations/<%=location.slug%>"><%=location.name%></a><strong><br>
+      <%=location.city%>, <%=location.state%></li><br>
   <%end%>
 </ul>

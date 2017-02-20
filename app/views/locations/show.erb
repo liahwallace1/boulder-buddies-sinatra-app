@@ -1,5 +1,5 @@
-<h2><%=@location.name%></h2>
-<h3><%=@location.city%>, <%=@location.state%></h3>
+<h2><%=@location.name%>  (<%=@location.city%>, <%=@location.state%>)</h2>
+
 
 <%if Helpers.logged_in?(session)%>
 <form method="get" action="/climbs/new">
@@ -10,8 +10,8 @@
 <h2>Climbs</h2>
 <ul>
   <%@location.climbs.reverse.each do |climb|%>
-    <li><h4><a href="/climbs/<%=climb.slug%>"><%=climb.name%> - <%=climb.grade%></a><br>
-      Added by: <a href="/locations/<%=climb.user.slug%>"><%=climb.user.username%></a></h4></li>
+    <li><strong><a href="/climbs/<%=climb.slug%>"><%=climb.name%> - <%=climb.grade%></a></strong><br>
+      Added by: <a href="/users/<%=climb.user.slug%>"><%=climb.user.username%></a></li><br>
   <%end%>
 </ul>
 <br><br>
