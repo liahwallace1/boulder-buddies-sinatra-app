@@ -5,6 +5,9 @@
 <form method="get" action="/climbs/new">
   <input type="submit" value="Add a New Climb">
 </form>
+<form method="get" action="/locations/<%=@location.slug%>/edit">
+  <input type="submit" value="Edit this Location">
+</form>
 <%end%>
 <br><br>
 <h2>Climbs</h2>

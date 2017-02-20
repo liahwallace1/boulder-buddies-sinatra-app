@@ -14,7 +14,13 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
-    erb :welcome
+    if logged_in?
+      @user = current_user
+      flash[:message] = "You are already logged in. To sign up a new user, log out first."
+      redirect to "/users/#{@user.slug}"
+    else
+      erb :welcome
+    end
   end
 
   helpers do

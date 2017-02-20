@@ -39,5 +39,6 @@
   <br><br>
   <input type="submit" value="Save Changes">
 </form>
-<br><br>
-<a href="/locations">Back to Locations</a>
+<form method="get" action="/climbs/<%=@climb.slug%>">
+  <input type="submit" value="Back">
+</form>

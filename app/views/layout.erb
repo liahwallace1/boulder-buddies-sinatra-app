@@ -14,8 +14,15 @@
   <link rel="stylesheet" href="/stylesheets/main.css" />
 </head>
 <body>
-  
+
   <div class="wrapper">
+    <% if logged_in? %>
+      <header class="user-links">
+        <a href="/locations">Locations</a>
+        <a href="/locations">Homepage</a>
+        <p> <%=current_user.username%> is logged in. <a href="/logout">(Log Out)</a></p>
+      </header>
+    <%end%>
 
       <%= yield %>
 

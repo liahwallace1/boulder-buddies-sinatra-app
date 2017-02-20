@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   get '/signup' do
-    if session[:user_id]
+    if logged_in?
       @user = User.find(session[:user_id])
       flash[:message] = "You are already logged in. To sign up a new user, log out first."
       redirect to "/users/#{@user.slug}"
@@ -27,7 +27,7 @@ class UsersController < ApplicationController
   end
 
   get '/login' do
-    if session[:user_id]
+    if logged_in?
       @user = User.find(session[:user_id])
       flash[:message] = "You are already logged in. To log in a new user, log out first."
       redirect to "/users/#{@user.slug}"

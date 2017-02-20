@@ -7,17 +7,17 @@
 </form>
 <br><br>
 <form method="post" action="/locations">
-  <label>Name: </label><input id="location_name" type="text" name="name" placeholder="Location Name">
+  <label>Name: </label><input id="location_name" type="text" name="location[name]" placeholder="Location Name">
   <br><br>
-  <label>City: </label><input id="location_city" type="text" name="city" placeholder="City">
+  <label>City: </label><input id="location_city" type="text" name="location[city]" placeholder="City">
   <br><br>
-  <label>State: </label><select name="state">
+  <label>State: </label><select name="location[state]">
       <%Location.state_array.each do |state|%>
         <option value="<%=state%>"><%=state%></option>
         <%end%>
       </select>
   <br><br>
-  <label>Description: </label><input id="location_description" type="text" name="description" placeholder="Description">
+  <label>Description: </label><input id="location_description" type="text" name="location[description]" placeholder="Description">
   <br><br>
   <input type="submit" value="Add Location">
 </form>

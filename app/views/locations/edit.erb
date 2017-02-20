@@ -1,12 +1,12 @@
 <h1>Edit <%=@location.name%></h1>
 
 <br><br>
-<form method="post" action="/locations/<%=@location.slud">
-  <label>Name: </label><input id="location_name" type="text" name="name" value="<%=@location.name%>">
+<form method="post" action="/locations/<%=@location.slug%>">
+  <label>Name: </label><input id="location_name" type="text" name="location[name]" value="<%=@location.name%>">
   <br><br>
-  <label>City: </label><input id="location_city" type="text" name="city" value="<%=@location.city%>">
+  <label>City: </label><input id="location_city" type="text" name="location[city]" value="<%=@location.city%>">
   <br><br>
-  <label>State: </label><select name="state">
+  <label>State: </label><select name="location[state]">
       <%Location.state_array.each do |state|%>
         <%if @location.state.eql? state%>
           <option value="<%=state%>" selected><%=state%></option>
@@ -16,7 +16,7 @@
         <%end%>
       </select>
   <br><br>
-  <label>Description: </label><input id="location_description" type="text" name="description" value="<%=@location.description%>">
+  <label>Description: </label><input id="location_description" type="text" name="location[description]" value="<%=@location.description%>">
   <br><br>
   <input type="submit" value="Save Changes">
 </form>
