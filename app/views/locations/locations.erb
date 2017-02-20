@@ -1,3 +1,11 @@
+<% if !logged_in? %>
+  <header class="user-links">
+    <p>Log in to add or edit content
+      <a href="/login"><button id="no_acct_links">Log In</button></a>
+      <a href="/signup"><button id="no_acct_links">Sign Up</button></a></p>
+  </header>
+<%end%>
+
 <h2>List of Locations</h2>
 
 <%if logged_in?%>

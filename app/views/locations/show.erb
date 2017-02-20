@@ -1,3 +1,11 @@
+<% if !logged_in? %>
+  <header class="user-links">
+    <p>Log in to add or edit content
+      <a href="/login"><button id="no_acct_links">Log In</button></a>
+      <a href="/signup"><button id="no_acct_links">Sign Up</button></a></p>
+  </header>
+<%end%>
+
 <h2><%=@location.name%>  (<%=@location.city%>, <%=@location.state%>)</h2>
 <p><%=@location.description%></p>
 
@@ -11,11 +19,19 @@
 <%end%>
 <br><br>
 <h2>Climbs</h2>
-<ul>
-  <%@location.climbs.reverse.each do |climb|%>
-    <li><strong><a href="/climbs/<%=climb.slug%>"><%=climb.name%> - <%=climb.grade%></a></strong><br>
-      Added by: <a href="/users/<%=climb.user.slug%>"><%=climb.user.username%></a></li><br>
+  <%if @location.climbs.count > 0%>
+    <ul>
+      <%@location.climbs.reverse.each do |climb|%>
+        <li><strong><a href="/climbs/<%=climb.slug%>"><%=climb.name%> - <%=climb.grade%></a></strong><br>
+          Added by: <a href="/users/<%=climb.user.slug%>"><%=climb.user.username%></a></li><br>
+      <%end%>
+    </ul>
+  <%else%>
+    <%if logged_in?%>
+      <p>No climbs yet. Click the link above to add a climb!</p>
+    <%else%>
+      <p>No climbs yet. <a href="/login">Log In</a> or <a href="/signup">Sign Up</a> to add content!<p>
+    <%end%>
   <%end%>
-</ul>
 <br><br>
 <a href="/locations">Back to Locations</a>

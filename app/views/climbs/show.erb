@@ -1,4 +1,10 @@
-
+<% if !logged_in? %>
+  <header class="user-links">
+    <p>Log in to add or edit content
+      <a href="/login"><button id="no_acct_links">Log In</button></a>
+      <a href="/signup"><button id="no_acct_links">Sign Up</button></a></p>
+  </header>
+<%end%>
 <h2><%=@climb.name%> - <%=@climb.grade%></h2>
 <h4>Location: <a href="/locations/<%=@climb.location.slug%>"><%=@climb.location.name%></a></h4><br>
 <h4>Description: </h4><br>

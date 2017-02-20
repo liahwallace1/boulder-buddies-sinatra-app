@@ -18,9 +18,9 @@
   <div class="wrapper">
     <% if logged_in? %>
       <header class="user-links">
-        <a href="/locations">Locations</a>
-        <a href="/locations">Homepage</a>
-        <p> <%=current_user.username%> is logged in. <a href="/logout">(Log Out)</a></p>
+        <a href="/locations"><button id="logged_in_links">Locations</button></a>
+        <a href="/users/<%=current_user.slug%>"><button id="logged_in_links">Profile</button></a>
+        <a href="/logout"><button id="logged_in_links">Log Out</button></a>
       </header>
     <%end%>
 
