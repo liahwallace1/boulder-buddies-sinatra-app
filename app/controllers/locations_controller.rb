@@ -32,4 +32,26 @@ class LocationsController < ApplicationController
       erb :'/locations/show'
   end
 
+  get '/locations/:slug/edit' do
+    if session[:user_id]
+      @user = User.find(session[:user_id])
+      @location = Location.find_by_slug(params[:slug])
+      erb :'/location/edit'
+    else
+      flash[:message] = "You have to be logged in to edit a location."
+      redirect to '/locations/<%=@location.slug%>'
+    end
+  end
+
+  post '/climbs/:slug' do
+    @climb = Climb.find_by_slug(params[:slug])
+    @user = User.find(session[:user_id])
+    @climb.update(params[:climb])
+    if !params["location"]["name"].empty?
+      @climb.location_id = Location.create(name: params["location"]["name"], city: params["location"]["city"], state: params["location"]["state"]).id
+    end
+    @climb.save
+    redirect to "/climbs/#{@climb.slug}"
+  end
+
 end
