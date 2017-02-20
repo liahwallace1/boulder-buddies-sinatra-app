@@ -12,10 +12,12 @@
   <label>City: </label><input id="location_city" type="text" name="city" placeholder="City">
   <br><br>
   <label>State: </label><select name="state">
-      <%Helpers.state_array.each do |state|%>
+      <%Location.state_array.each do |state|%>
         <option value="<%=state%>"><%=state%></option>
         <%end%>
       </select>
+  <br><br>
+  <label>Description: </label><input id="location_description" type="text" name="description" placeholder="Description">
   <br><br>
   <input type="submit" value="Add Location">
 </form>

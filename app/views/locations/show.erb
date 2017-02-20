@@ -1,7 +1,7 @@
 <h2><%=@location.name%>  (<%=@location.city%>, <%=@location.state%>)</h2>
+<p><%=@location.description%></p>
 
-
-<%if Helpers.logged_in?(session)%>
+<%if logged_in?%>
 <form method="get" action="/climbs/new">
   <input type="submit" value="Add a New Climb">
 </form>

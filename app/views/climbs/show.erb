@@ -4,7 +4,7 @@
 <h4>Description: </h4><br>
 <p><%=@climb.description%></p>
 <br><br>
-<%if Helpers.logged_in?(session)%>
+<%if logged_in?%>
 <form method="get" action="/climbs/<%=@climb.slug%>/edit">
   <input type="submit" value="Edit this Climb">
 </form>

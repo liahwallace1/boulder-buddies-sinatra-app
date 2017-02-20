@@ -5,7 +5,7 @@
   <label>Climb Name: </label><input id="location_name" type="text" name="climb[name]" placeholder="Climb Name">
   <br><br>
   <label>Grade: </label><select name="climb[grade]">
-    <%Helpers.grade_array.each do |grade|%>
+    <%Climb.grade_array.each do |grade|%>
       <option value="<%=grade%>"><%=grade%></option>
       <%end%>
     </select>
@@ -24,7 +24,7 @@
   <label>City: </label><input id="location_city" type="text" name="location[city]">
   <br><br>
   <label>State: </label><select name="location[state]">
-      <%Helpers.state_array.each do |state|%>
+      <%Location.state_array.each do |state|%>
         <option value="<%=state%>"><%=state%></option>
         <%end%>
       </select>

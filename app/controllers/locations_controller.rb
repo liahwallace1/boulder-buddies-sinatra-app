@@ -1,6 +1,9 @@
 class LocationsController < ApplicationController
 
   get '/locations' do
+    if session[:user_id]
+      @user = User.find(session[:user_id])
+    end
     @locations = Location.all
     erb :'/locations/locations'
   end

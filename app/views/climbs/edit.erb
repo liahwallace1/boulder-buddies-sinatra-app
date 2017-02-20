@@ -6,7 +6,7 @@
   <br><br>
 
   <label>Grade: </label><select name="climb[grade]" select="<%=@climb.grade%>">
-    <%Helpers.grade_array.each do |grade|%>
+    <%Climb.grade_array.each do |grade|%>
       <%if @climb.grade.eql? grade%>
         <option value="<%=grade%>" selected><%=grade%></option>
       <%else%>
@@ -30,10 +30,12 @@
   <label>City: </label><input id="location_city" type="text" name="location[city]">
   <br><br>
   <label>State: </label><select name="location[state]">
-      <%Helpers.state_array.each do |state|%>
+      <%Location.state_array.each do |state|%>
         <option value="<%=state%>"><%=state%></option>
         <%end%>
       </select>
+  <br><br>
+  <label>Description: </label><input id="location_description" type="text" name="description">
   <br><br>
   <input type="submit" value="Save Changes">
 </form>

@@ -32,7 +32,7 @@ class ClimbsController < ApplicationController
       @climb = Climb.find_by_slug(params[:slug])
       erb :'/climbs/edit'
     else
-      flash[:message] = "You have to be logged in to edit a climb"
+      flash[:message] = "You have to be logged in to edit a climb."
       redirect to '/locations'
     end
   end
