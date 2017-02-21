@@ -23,7 +23,11 @@
         <a href="/logout"><button id="logged_in_links">Log Out</button></a>
       </header>
     <%end%>
-
+<br><br>
+    <% if flash.has?(:message) %>
+      <%= flash[:message] %>
+    <% end %>
+<br>
       <%= yield %>
 
     <footer class="branding">

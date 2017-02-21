@@ -5,24 +5,39 @@
       <a href="/signup"><button id="no_acct_links">Sign Up</button></a></p>
   </header>
 <%end%>
+
 <h2><%=@climb.name%> - <%=@climb.grade%></h2>
-<h4>Location: <a href="/locations/<%=@climb.location.slug%>"><%=@climb.location.name%></a></h4><br>
-<h4>Description: </h4><br>
-<p><%=@climb.description%></p>
-<br><br>
-<%if logged_in?%>
+
+<%if logged_in? && current_user.id == @climb.user_id%>
 <form method="get" action="/climbs/<%=@climb.slug%>/edit">
   <input type="submit" value="Edit this Climb">
 </form>
 <%end%>
+<br>
+<h4>Location: <a href="/locations/<%=@climb.location.slug%>"><%=@climb.location.name%></a></h4><br>
+
+<h4>Added By: <a href="/users/<%=@climb.user.slug%>"><%=@climb.user.username%></a></h4><br>
+
+<h4>Description: </h4><br>
+
+<p><%=@climb.description%></p>
+<br><br>
+
+
+<h4>Comments: </h4><br>
 <ul>
 <%@climb.comments.each do |comment|%>
-  <li><%=comment.content%></li>
+  <li><%=comment.user.username%> says: <%=comment.content%></li><br>
   <%end%>
 <ul>
-<form method="post" action="/comments/<%=@climb.id%>">
-  Comment: <input type="text" name="content"/>
-  <input type="submit" />
+
+<%if logged_in?%>
+<br>
+<p>Have more information on this climb? Enter a comment!</p>
+  <form method="post" action="/climbs/<%=@climb.slug%>/comments">
+  <textarea type="text" name="content" placeholder="Add Comment"></textarea><br>
+  <input type="submit" value="Add Comment">
 </form>
+<%end%>
 <br><br>
-<a href="/locations">Back to Locations</a>
+<a href="/locations/<%=@climb.location.slug%>">Back to Location</a>

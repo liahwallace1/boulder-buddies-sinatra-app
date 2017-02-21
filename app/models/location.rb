@@ -3,6 +3,9 @@ class Location < ActiveRecord::Base
   has_many :climbs
   has_many :users, through: :climbs
 
+  validates :name, presence: true, uniqueness: true
+  validates_presence_of :city, :state
+
   extend Slugifiable::ClassMethods
   include Slugifiable::InstanceMethods
 

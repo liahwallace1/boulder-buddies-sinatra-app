@@ -11,7 +11,7 @@
     </select>
     <br><br>
     <label> Description: </label><br>
-    <input id="climb_description" type="text" name="climb[description]" placeholder="Describe this climb!">
+    <textarea id="climb_description" type="text" name="climb[description]" placeholder="Describe this climb!"></textarea>
     <br><br>
     <label>Select a location: </label><br>
     <%Location.all.each do |location|%>
@@ -29,7 +29,7 @@
         <%end%>
       </select>
   <br><br>
-  <label>Description: </label><input id="location_description" type="text" name="description" placeholder="Description">
+  <label>Description: </label><br><textarea id="location_description" type="text" name="location[description]" placeholder="Description"></textarea>
   <br><br>
   <input type="submit" value="Add Climb">
 </form>
