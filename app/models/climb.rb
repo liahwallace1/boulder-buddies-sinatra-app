@@ -2,6 +2,7 @@ class Climb < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :location
+  has_many :comments
 
   extend Slugifiable::ClassMethods
   include Slugifiable::InstanceMethods

@@ -7,4 +7,5 @@ end
 use UsersController
 use LocationsController
 use ClimbsController
+use CommentsController
 run ApplicationController

@@ -13,8 +13,8 @@
 <h2>Climbs Added</h2>
 <ul>
   <%@user.climbs.reverse.each do |climb|%>
-    <li><h4><a href="/climbs/<%=climb.slug%>"><%=climb.name%> - <%=climb.grade%></a><br>
-      <a href="/locations/<%=climb.location.slug%>"><%=climb.location.name%></a></h4></li><br>
+    <li><strong><a href="/climbs/<%=climb.slug%>"><%=climb.name%> - <%=climb.grade%></a></strong><br>
+    <a href="/locations/<%=climb.location.slug%>"><%=climb.location.name%></a></li><br>
   <%end%>
 </ul>
 <br><br>

@@ -15,5 +15,14 @@
   <input type="submit" value="Edit this Climb">
 </form>
 <%end%>
+<ul>
+<%@climb.comments.each do |comment|%>
+  <li><%=comment.content%></li>
+  <%end%>
+<ul>
+<form method="post" action="/comments/<%=@climb.id%>">
+  Comment: <input type="text" name="content"/>
+  <input type="submit" />
+</form>
 <br><br>
 <a href="/locations">Back to Locations</a>
