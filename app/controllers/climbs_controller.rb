@@ -1,8 +1,8 @@
 class ClimbsController < ApplicationController
 
   get '/climbs/new' do
-    if session[:user_id]
-      @user = User.find(session[:user_id])
+    if logged_in?
+      @user = current_user
       erb :'climbs/new'
     else
       flash[:message] = "You have to be logged in to add a climb"
@@ -40,13 +40,13 @@ class ClimbsController < ApplicationController
   end
 
   get '/climbs/:slug/edit' do
-    if session[:user_id]
-      @user = User.find(session[:user_id])
+    if logged_in?
+      @user = current_user
       @climb = Climb.find_by_slug(params[:slug])
       erb :'/climbs/edit'
     else
       flash[:message] = "You have to be logged in to edit a climb."
-      redirect to '/locations'
+      redirect to "/climbs/#{climb.slug}"
     end
   end
 
