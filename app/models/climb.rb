@@ -4,7 +4,7 @@ class Climb < ActiveRecord::Base
   belongs_to :location
   has_many :comments
 
-  validates_presence_of :name, :grade, :description
+  validates_presence_of :name, :grade, :description, :location_id
   validates_uniqueness_of :name, scope: :location_id
 
   extend Slugifiable::ClassMethods

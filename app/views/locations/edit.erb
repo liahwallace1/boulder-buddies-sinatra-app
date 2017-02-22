@@ -2,6 +2,7 @@
 
 <br><br>
 <form method="post" action="/locations/<%=@location.slug%>">
+  <input id="hidden" type="hidden" name="_method" value="patch">
   <label>Name: </label><input id="location_name" type="text" name="location[name]" value="<%=@location.name%>">
   <br><br>
   <label>City: </label><input id="location_city" type="text" name="location[city]" value="<%=@location.city%>">
@@ -16,7 +17,7 @@
         <%end%>
       </select>
   <br><br>
-  <label>Description: </label><textarea id="location_description" type="text" name="location[description]" value="<%=@location.description%>"></textarea>
+  <label>Description: </label><textarea rows="10" cols="50" id="location_description" type="text" name="location[description]"><%=@location.description%></textarea>
   <br><br>
   <input type="submit" value="Save Changes">
 </form>

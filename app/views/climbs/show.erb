@@ -12,6 +12,10 @@
 <form method="get" action="/climbs/<%=@climb.slug%>/edit">
   <input type="submit" value="Edit this Climb">
 </form>
+<form onsubmit="return confirm('Are you sure you want to delete <%= @climb.name %> and all of it\'s data?');" method="post" action="/climbs/<%=@climb.slug%>/delete">
+  <input id="hidden" type="hidden" name="_method" value="delete">
+  <input type="submit" value="Delete this Climb">
+</form>
 <%end%>
 <br>
 <h4>Location: <a href="/locations/<%=@climb.location.slug%>"><%=@climb.location.name%></a></h4><br>

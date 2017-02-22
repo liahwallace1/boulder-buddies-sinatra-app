@@ -42,10 +42,10 @@ class LocationsController < ApplicationController
       erb :'/locations/show'
   end
 
-  post '/locations/:slug' do
-    @location = Location.find_by_slug(params[:slug])
-    @location.update(params[:location])
-    redirect to "/locations/#{@location.slug}"
+  patch '/locations/:slug' do
+    location = Location.find_by_slug(params[:slug])
+    location.update(params[:location])
+    redirect to "/locations/#{location.slug}"
   end
 
 end

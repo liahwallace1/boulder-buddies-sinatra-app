@@ -2,6 +2,7 @@
 
 
 <form method="post" action="/climbs/<%=@climb.slug%>">
+  <input id="hidden" type="hidden" name="_method" value="patch">
   <label>Climb Name: </label><input id="location_name" type="text" name="climb[name]" value="<%=@climb.name%>">
   <br><br>
 
@@ -17,7 +18,7 @@
     <br><br>
 
     <label> Description: </label><br>
-    <textarea id="climb_description" type="text" name="climb[description]" value="<%=@climb.description%>"></textarea>
+    <textarea rows="10" cols="50" id="climb_description" type="text" name="climb[description]"><%=@climb.description%></textarea>
     <br><br>
     <label>Select a location: </label><br>
     <%Location.all.each do |location|%>
@@ -35,7 +36,7 @@
         <%end%>
       </select>
   <br><br>
-  <label>Description: </label><textarea id="location_description" type="text" name="description"></textarea>
+  <label>Description: </label><br><textarea id="location_description" type="text" name="location[description]"></textarea>
   <br><br>
   <input type="submit" value="Save Changes">
 </form>
