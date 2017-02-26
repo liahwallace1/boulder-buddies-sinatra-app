@@ -39,7 +39,12 @@ class LocationsController < ApplicationController
 
   get '/locations/:slug' do
       @location = Location.find_by_slug(params[:slug])
-      erb :'/locations/show'
+      if @location
+        erb :'/locations/show'
+      else
+        flash[:message] = "That location does not exist."
+        redirect to "/locations"
+      end
   end
 
   patch '/locations/:slug' do

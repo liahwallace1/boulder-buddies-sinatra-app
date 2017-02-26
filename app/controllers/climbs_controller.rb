@@ -47,7 +47,12 @@ class ClimbsController < ApplicationController
 
   get '/climbs/:slug' do
       @climb = Climb.find_by_slug(params[:slug])
-      erb :'/climbs/show'
+      if @climb
+        erb :'/climbs/show'
+      else
+        flash[:message] = "That climb does not exist."
+        redirect to "/locations"
+      end
   end
 
   patch '/climbs/:slug' do
