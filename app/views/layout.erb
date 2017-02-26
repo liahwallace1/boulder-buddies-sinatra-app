@@ -25,9 +25,9 @@
     <%end%>
 <br><br>
     <% if flash.has?(:message) %>
-      <%= flash[:message] %>
+      <p style="color:red"><%= flash[:message] %></p>
     <% end %>
-<br>
+<br><br>
       <%= yield %>
 
     <footer class="branding">
