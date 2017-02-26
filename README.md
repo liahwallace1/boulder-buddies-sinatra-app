@@ -17,7 +17,7 @@ With Account:
   - Add comments to climbs posted by other users
 
 ## Video walkthrough
-[![IMAGE ALT TEXT](https://img.youtube.com/vi/13SoAVfOfas/0.jpg)](http://www.youtube.com/watch?v=13SoAVfOfas "Video Title")
+[![IMAGE ALT TEXT](https://img.youtube.com/vi/1Jolb1kO7mQ/0.jpg)](https://youtu.be/1Jolb1kO7mQ "Boulder Buddies")
 
 ## Installation
 Clone the repository, then execute:
@@ -46,11 +46,11 @@ Boulder Buddies uses a number of open source projects to work properly:
 * [Bcrypt] - A sophisticated and secure hash algorithm designed by The OpenBSD project.
 
 
-And Boulder Buddies itself is open source with a [public repository][prjorg]
+And Boulder Buddies itself is open source with a [public repository][boulder-buddies]
  on GitHub.
 
 
-### Todos
+### To Dos
 
  - Allow photo uploads for climbs
  - Adding map to location
@@ -59,14 +59,14 @@ And Boulder Buddies itself is open source with a [public repository][prjorg]
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at [this project's repository][prjorg]. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at [this project's repository][boulder-buddies]. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
 This Web Application is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
 
 
-   [prjorg]: <https://github.com/jilustrisimo/project-organizer>
+   [boulder-buddies]: <https://github.com/liahwallace1/boulder-buddies-sinatra-app>
    [bcrypt]: <https://rubygems.org/gems/bcrypt/versions/3.1.11>
    [Active Record]: <https://github.com/rails/rails/tree/master/activerecord>
    [Sinatra]: <https://github.com/sinatra/sinatra>
