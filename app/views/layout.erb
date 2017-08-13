@@ -22,6 +22,12 @@
         <a href="/users/<%=current_user.slug%>"><button id="logged_in_links">Profile</button></a>
         <a href="/logout"><button id="logged_in_links">Log Out</button></a>
       </header>
+    <% else %>
+    <header class="user-links">
+      <a href="/locations"><button id="logged_out_links">Locations</button></a>
+      <a href="/signup"><button id="logged_out_links">Sign Up</button></a>
+      <a href="/login"><button id="logged_out_links">Log In</button></a>
+    </header>
     <%end%>
 <br><br>
     <% if flash.has?(:message) %>
